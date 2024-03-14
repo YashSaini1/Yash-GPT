@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    font-family: "Lato", sans-serif;
+    transition: all .5s ease;
+}
+
+.container {
+    justify-content: space-between;
+    color: azure;
+}
+
+.left {
+    transition: all .3s ease-in-out;
+    background-color: #212121;
+    width: 23.5vw;
+    height: 93vh;
+    padding: 20px 15px 20px 20px;
+}
+
+.left .upper {
+    justify-content: space-between;
+    padding-bottom: 16px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.functionality {
+    display: none;
+    position: absolute;
+    background-color: #212121;
+    width: auto;
+    box-shadow: 0px 2px 11px 1px black;
+    padding: 9px 11px;
+    z-index: 1;
+    left: 380px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+/* Show functionality display when button is hovered */
+.left .upper img:hover+.functionality {
+    display: block;
+}
+
+.upperImg {
+    gap: 15px;
+}
+
+.left img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.modeHistory {
+    display: none;
+}
+
+#back {
+    display: none;
+}
+
+.left img[alt="NewChat"] {
+    filter: invert(1);
+}
+
+.left hr {
+    border: 2px solid;
+}
+
+.chatHistory {
+    padding: 30px 0px;
+}
+
+.chatHistory ul {
+    height: 77vh;
+    overflow: auto;
+    flex-direction: column;
+    gap: 15px;
+    padding-right: 10px;
+}
+
+.chatHistory ul::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatHistory ul::-webkit-scrollbar-thumb {
+    background-color: black;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.chatHistory li {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1.6px solid rgb(25, 195, 3);
+    border-left: 1.6px solid rgb(25, 195, 125);
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #cfcfcf;
+    cursor: pointer;
+    line-height: 23px;
+    background-color: black;
+    transition: all .2s ease-out
+}
+
+.chatHistory .deleteChat:hover {
+    filter: blur(1px);
+}
+
+.chatHistory li:hover {
+    background-color: #333333;
+}
+
+.right {
+    background-color: #212121;
+    width: 73vw;
+    height: 100vh;
+}
+
+.right nav {
+    background-color: rgb(25, 195, 125);
+    ;
+    padding: 17px 20px;
+    color: #000000;
+}
+
+.navbar {
+    justify-content: space-between;
+    font-family: "Orbitron", sans-serif;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.nav-left img {
+    cursor: pointer;
+    width: 35px;
+    margin-right: 10px;
+}
+
+.menu {
+    display: none;
+}
+
+.navbar .aiName {
+    font-size: 19px;
+    font-variant: small-caps;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.capabilities ul {
+    gap: 40px;
+}
+
+.capabilities ul li {
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all .2s ease-out;
+    padding: 5px;
+    position: relative;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.capabilities ul li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+.capabilities ul li:hover::before {
+    width: 100%;
+}
+
+.chatting {
+    height: 70vh;
+    margin-top: 10px;
+    padding: 10px 15px;
+    overflow: auto;
+}
+
+.chatting .default {
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 40%;
+    /* display: none; */
+}
+
+.default img {
+    width: 55px;
+    filter: invert();
+}
+
+.default p {
+    font-size: 22px;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.chatting .chatOn {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid rgb(25, 195, 125);
+}
+
+.imageLive {
+    /* height: 68vh; */
+    font-size: 22px;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 1px;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+
+.imageLive .default {
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 40%;
+}
+
+#processImg {
+    width: 55px;
+    filter: invert();
+}
+
+.imageLive img {
+    width: 50%;
+    height: 70vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.content .name {
+    font-size: 19px;
+    font-weight: 600;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 1px;
+}
+
+.content .text {
+    font-size: 18px;
+    letter-spacing: .5px;
+    color: #cfcfcf;
+    line-height: 30px;
+}
+
+.chatting .chatOn img {
+    width: 38px;
+}
+
+.userIp {
+    gap: 9px;
+}
+
+.gptResponse {
+    gap: 9px;
+}
+
+.input {
+    margin-top: 15px;
+    gap: 15px;
+    justify-content: center;
+}
+
+.input input {
+    outline: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 60vw;
+    border-radius: 7px;
+    background-color: #212121;
+    color: azure;
+    border: 2px solid azure;
+    margin-left: 20px;
+    word-wrap: break-word;
+    z-index: 1;
+}
+
+.input img {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    transition: all .5s ease;
+    border: 2px solid green;
+    transition: all .3s ease-out;
+    transform: translateX(-100px);
+    visibility: hidden;
+}
+
+.input img:hover {
+    transform: translateX(20px);
+    background-color: green;
+}
+
+/* Adding Dark Mode Styles */
+
+.dark {
+    color: black;
+}
+
+.dark .left {
+    background-color: aliceblue;
+}
+
+.dark .right {
+    background-color: aliceblue;
+}
+
+.dark .default img {
+    filter: unset;
+}
+
+.dark .input input {
+    border-color: #000000;
+    background-color: aliceblue;
+    color: black;
+}
+
+.dark #newChat {
+    filter: unset;
+}
+
+.dark .chatHistory ul li {
+    background-color: #c9c9c9a8;
+    color: black;
+    font-weight: 900;
+    border-top: 3px solid rgb(25, 195, 3);
+    border-left: 3px solid rgb(25, 195, 3);
+}
+
+.dark .chatHistory ul li:hover {
+    background-color: #aaaaaae3;
+}
+
+.dark .functionality {
+    background-color: aliceblue;
+}
+
+.dark .chatOn {
+    background-color: #c9c9c9a8;
+    border: 2px solid rgb(25, 195, 3);
+}
+
+.dark .chatOn .content .text {
+    color: black;
+}
+
+/* Making Responsive using Media Queries */
+@media (max-width: 1200px) {
+    .left {
+        position: absolute;
+        z-index: 2;
+        left: -120%;
+        width: 300px;
+        box-shadow: 5px -5px 15px black;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .input input {
+        width: 85vw;
+    }
+
+    .input {
+        position: fixed;
+        bottom: 25px;
+        width: 97vw;
+    }
+
+    .menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu img {
+        width: 35px;
+    }
+
+    .nav-left {
+        display: none;
+    }
+
+    #back {
+        display: block;
+        width: 30px;
+    }
+
+    #historyTxt {
+        display: none;
+    }
+
+    .upper .modeHistory {
+        display: block;
+        filter: invert(1);
+        width: 35px;
+    }
+
+    .dark .modeHistory {
+        filter: invert(0);
+    }
+
+    .imageLive img {
+        width: 50%;
+    }
+}
+
+@media (max-width: 700px) {
+    .capabilities ul {
+        gap: 20px;
+    }
+
+    .capabilities ul li {
+        font-size: 14px;
+        letter-spacing: .5px;
+    }
+
+    .menu img {
+        width: 30px;
+    }
+
+    .default img {
+        width: 45px
+    }
+
+    .default p {
+        font-size: 18px;
+    }
+
+    .imageLive img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 530px) {
+    .capabilities ul {
+        gap: 10px;
+    }
+
+    .capabilities ul li {
+        font-size: 12px;
+    }
+
+    .menu img {
+        width: 25px;
+    }
+
+    .default img {
+        width: 40px
+    }
+
+    .default p {
+        font-size: 15px;
+    }
+
+    .input {
+        bottom: 20px;
+    }
+
+    .input input {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+
+    .input img {
+        width: 27px;
+        height: unset;
+    }
+
+    .chatting {
+        height: 75vh;
+    }
+
+    .functionality {
+        left: 197px;
+        top: 70px;
+    }
+
+    .imageLive img {
+        width: 100%;
+    }
+}
