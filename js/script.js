@@ -15,6 +15,8 @@ let menu = document.querySelector('.menu')
 let navigateLi = document.querySelectorAll('.navLi')
 let data = []
 let dataImage = []
+const api_key = config.api_key
+console.log(api_key)
 
 // Creating Cursor Typed Animation for Chat
 let typedAnimationChat = () => {
@@ -66,7 +68,6 @@ let ImgGenWait = () => {
 
 // Getting response from api -->> CHAT
 async function getChat(prompt) {
-  const api_key = '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'
   const url = 'https://api.openai.com/v1/chat/completions'
   let options = {
     method: 'POST',
@@ -94,7 +95,6 @@ async function getChat(prompt) {
 
 // Getting response from api -->> IMAGE
 async function getImage(prompt) {
-  const api_key = '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'
   const url = 'https://api.openai.com/v1/images/generations';
 
   const options = {
@@ -120,7 +120,6 @@ async function getImage(prompt) {
 
 // Generate a title for chat history
 async function generateTitle(prompt) {
-  const api_key = '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'
   const apiUrl = 'https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions';
   const requestBody = {
     prompt: `Generate a small to the point title of this given paragaraph:- ${prompt}`,
