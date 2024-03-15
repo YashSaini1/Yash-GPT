@@ -16,7 +16,6 @@ let navigateLi = document.querySelectorAll('.navLi')
 let data = []
 let dataImage = []
 const api_key = config.api_key
-console.log(api_key)
 
 // Creating Cursor Typed Animation for Chat
 let typedAnimationChat = () => {
@@ -55,7 +54,6 @@ let ImgGenWait = () => {
   let options = {
     strings: ['Generating...', '50% Done', '78% Done', 'Getting on Screen'],
     typeSpeed: 40,
-    // loop: true,
     backSpeed: 20,
     backDelay: 2200,
   };
