@@ -15,7 +15,7 @@ let menu = document.querySelector('.menu')
 let navigateLi = document.querySelectorAll('.navLi')
 let data = []
 let dataImage = []
-// const api_key = process.env.api_key
+const api_key = 'sk-gXNvWJsXK' + 'w29iil0MaH' + 'mT3BlbkFJ0F7x' + 'YH6WmZE44mLglirT';
 
 // Creating Cursor Typed Animation for Chat
 let typedAnimationChat = () => {
