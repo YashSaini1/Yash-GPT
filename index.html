@@ -1,90 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/utility.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utility.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Orbitron:wght@400..900&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>YashGPT - AI Model</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container flex">
-        <div class="left">
-            <div class="upper flex align-center">
-                <h2 id="historyTxt">History</h2>
-                <img src="images/gptNav.svg" alt="gptIcon" class="mode modeHistory">
+      <div class="left">
+        <div class="upper flex align-center">
+          <h2 id="historyTxt">History</h2>
+          <img src="images/gptNav.svg" alt="gptIcon" class="mode modeHistory" />
 
-                <div class="upperImg flex align-center">
-                    <img src="images/deleteAll.png" alt="deleteAll">
-                    <div class="functionality">Delete All</div>
-                    <img src="images/newChat.png" alt="NewChat" id="newChat">
-                    <div class="functionality">New Chat</div>
-                    <img src="images/leftArrow.png" alt="goBack" id="back">
-                </div>
-            </div>
-            <hr>
+          <div class="upperImg flex align-center">
+            <img src="images/deleteAll.png" alt="deleteAll" />
+            <div class="functionality">Delete All</div>
+            <img src="images/newChat.png" alt="NewChat" id="newChat" />
+            <div class="functionality">New Chat</div>
+            <img src="images/leftArrow.png" alt="goBack" id="back" />
+          </div>
+        </div>
+        <hr />
 
-            <div class="chatHistory">
-                <ul class="flex chatHistoryUl"></ul>
-                <ul class="flex imgHistoryUl none"></ul>
+        <div class="chatHistory">
+          <ul class="flex chatHistoryUl"></ul>
+          <ul class="flex imgHistoryUl none"></ul>
+        </div>
+      </div>
+
+      <div class="right">
+        <nav>
+          <div class="navbar flex align-center currentChat">
+            <div class="nav-left align-center">
+              <img src="images/gptNav.svg" alt="gptIcon" class="mode" />
+              <p class="aiName">YashGPT 3.5 TURBO</p>
             </div>
+
+            <div class="menu">
+              <img src="images/menu.png" alt="menu" />
+            </div>
+
+            <div class="capabilities">
+              <ul class="flex">
+                <li class="navLi">Let's Chat</li>
+                <li class="navLi">Image Generation</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="chatting">
+          <div class="default flex align-center">
+            <img src="images/gptNav.svg" alt="icon" />
+            <p><span id="span1"></span></p>
+          </div>
+
+          <div class="chatLive"></div>
+          <div class="imageLive flex align-center none"></div>
         </div>
 
-        <div class="right">
-            <nav>
-                <div class="navbar flex align-center currentChat">
-
-                    <div class="nav-left align-center">
-                        <img src="images/gptNav.svg" alt="gptIcon" class="mode">
-                        <p class="aiName">YashGPT 3.5 TURBO</p>
-                    </div>
-
-                    <div class="menu">
-                        <img src="images/menu.png" alt="menu">
-                    </div>
-
-                    <div class="capabilities">
-                        <ul class="flex">
-                            <li class="navLi">Let's Chat</li>
-                            <li class="navLi">Image Generation</li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="chatting">
-                <div class="default flex align-center">
-                    <img src="images/gptNav.svg" alt="icon">
-                    <p><span id="span1"></span></p>
-                </div>
-
-                <div class="chatLive"></div>
-                <div class="imageLive flex align-center none"></div>
-            </div>
-
-            <div class="input flex align-center">
-                <input type="text" placeholder="Enter your query..">
-                <img src="images/send.png" alt="send" class="sendQuery">
-            </div>
+        <div class="input flex align-center">
+          <input type="text" placeholder="Enter your query.." />
+          <img src="images/send.png" alt="send" class="sendQuery" />
         </div>
-
+      </div>
     </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="js/script.js" type="module"></script>
     <!-- <script type="text/javascript" src="js/config.js"></script> -->
-</body>
-
+  </body>
 </html>

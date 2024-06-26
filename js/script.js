@@ -15,8 +15,6 @@ let menu = document.querySelector(".menu");
 let navigateLi = document.querySelectorAll(".navLi");
 let data = [];
 let dataImage = [];
-const api_key =
-  "sk-gXNvWJsXK" + "w29iil0MaH" + "mT3BlbkFJ0F7x" + "YH6WmZE44mLglirT";
 
 // Creating Cursor Typed Animation for Chat
 let typedAnimationChat = () => {
@@ -81,46 +79,47 @@ let ImgGenWait = () => {
 
 // Getting response from api -->> CHAT
 async function getChat(prompt) {
-  const url = "https://api.openai.com/v1/chat/completions";
-  let options = {
+  const url = "https://chatgpt-42.p.rapidapi.com/gpt4";
+  const options = {
     method: "POST",
     headers: {
+      "x-rapidapi-key": "19b40294b6mshbd6b9326b7e2fc5p13c593jsn2b2eefd0d0b8",
+      "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${api_key}`,
     },
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "user",
           content: `${prompt}`,
         },
       ],
+      web_access: false,
     }),
   };
 
   input.value = "";
   const response = await fetch(url, options);
   const result = await response.json();
+  console.log(result.result);
 
-  return result.choices[0].message.content;
+  return result.result;
 }
 
 // Getting response from api -->> IMAGE
 async function getImage(prompt) {
-  const url = "https://api.openai.com/v1/images/generations";
-
+  const url = "https://chatgpt-42.p.rapidapi.com/texttoimage";
   const options = {
     method: "POST",
     headers: {
+      "x-rapidapi-key": "19b40294b6mshbd6b9326b7e2fc5p13c593jsn2b2eefd0d0b8",
+      "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${api_key}`,
     },
     body: JSON.stringify({
-      model: "dall-e-2",
-      prompt: `${prompt}`,
-      n: 1,
-      size: "1024x1024",
+      text: `${prompt}`,
+      width: 512,
+      height: 512,
     }),
   };
 
@@ -128,35 +127,34 @@ async function getImage(prompt) {
   const response = await fetch(url, options);
   const result = await response.json();
 
-  return result.data[0].url;
+  return result.generated_image;
 }
 
 // Generate a title for chat history
 async function generateTitle(prompt) {
-  const apiUrl =
-    "https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions";
-  const requestBody = {
-    prompt: `Generate a small to the point title of this given paragaraph:- ${prompt}`,
-    max_tokens: 20,
-  };
-
-  const response = await fetch(apiUrl, {
+  const url = "https://chatgpt-42.p.rapidapi.com/gpt4";
+  const options = {
     method: "POST",
     headers: {
+      "x-rapidapi-key": "19b40294b6mshbd6b9326b7e2fc5p13c593jsn2b2eefd0d0b8",
+      "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${api_key}`,
     },
-    body: JSON.stringify(requestBody),
-  });
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "user",
+          content: `Generate a specefic title of this given paragraph:- ${prompt}`,
+        },
+      ],
+      web_access: false,
+    }),
+  };
 
-  const data = await response.json();
-  const generatedTitle = data.choices[0].text
-    .replaceAll("\n", " ")
-    .replace(/"/g, "")
-    .replace(":", "")
-    .trim();
+  const response = await fetch(url, options);
+  const result = await response.json();
 
-  return generatedTitle;
+  return result.result;
 }
 
 // Stores Chat Data in local Storage as an object
